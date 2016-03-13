@@ -1,0 +1,449 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6B1B72BF1C95DFE900564012 /* NSSuggestibleTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B1B72BE1C95DFE900564012 /* NSSuggestibleTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6B1B72C61C95DFEA00564012 /* NSSuggestibleTextField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B1B72BB1C95DFE900564012 /* NSSuggestibleTextField.framework */; };
+		6B1B72CB1C95DFEA00564012 /* NSSuggestibleTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B72CA1C95DFEA00564012 /* NSSuggestibleTextFieldTests.swift */; };
+		6B1B72E01C95E0C000564012 /* CleverTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B72D51C95E0C000564012 /* CleverTextField.swift */; };
+		6B1B72E11C95E0C000564012 /* CocoaCleverControls.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B1B72D61C95E0C000564012 /* CocoaCleverControls.h */; };
+		6B1B72E21C95E0C000564012 /* HighlightingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B72D71C95E0C000564012 /* HighlightingView.swift */; };
+		6B1B72E31C95E0C000564012 /* RoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B72D81C95E0C000564012 /* RoundedCornersView.swift */; };
+		6B1B72E41C95E0C000564012 /* SuggestibleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B72D91C95E0C000564012 /* SuggestibleTextField.swift */; };
+		6B1B72E51C95E0C000564012 /* SuggestibleTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B72DA1C95E0C000564012 /* SuggestibleTextFieldCell.swift */; };
+		6B1B72E61C95E0C000564012 /* suggestionprototype.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B72DB1C95E0C000564012 /* suggestionprototype.xib */; };
+		6B1B72E71C95E0C000564012 /* SuggestionsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B72DC1C95E0C000564012 /* SuggestionsWindow.swift */; };
+		6B1B72E81C95E0C000564012 /* SuggestionsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B72DD1C95E0C000564012 /* SuggestionsWindowController.swift */; };
+		6B1B72E91C95E0C000564012 /* suggestiontitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B72DE1C95E0C000564012 /* suggestiontitle.xib */; };
+		6B1B72EA1C95E0C000564012 /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B72DF1C95E0C000564012 /* SuggestionViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6B1B72C71C95DFEA00564012 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B1B72B21C95DFE900564012 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B1B72BA1C95DFE900564012;
+			remoteInfo = NSSuggestibleTextField;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6B1B72BB1C95DFE900564012 /* NSSuggestibleTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NSSuggestibleTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B1B72BE1C95DFE900564012 /* NSSuggestibleTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NSSuggestibleTextField.h; path = ../NSSuggestibleTextField.h; sourceTree = "<group>"; };
+		6B1B72C01C95DFE900564012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		6B1B72C51C95DFEA00564012 /* NSSuggestibleTextFieldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSSuggestibleTextFieldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B1B72CA1C95DFEA00564012 /* NSSuggestibleTextFieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSuggestibleTextFieldTests.swift; sourceTree = "<group>"; };
+		6B1B72CC1C95DFEA00564012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B1B72D51C95E0C000564012 /* CleverTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleverTextField.swift; sourceTree = "<group>"; };
+		6B1B72D61C95E0C000564012 /* CocoaCleverControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaCleverControls.h; sourceTree = "<group>"; };
+		6B1B72D71C95E0C000564012 /* HighlightingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightingView.swift; sourceTree = "<group>"; };
+		6B1B72D81C95E0C000564012 /* RoundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornersView.swift; sourceTree = "<group>"; };
+		6B1B72D91C95E0C000564012 /* SuggestibleTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestibleTextField.swift; sourceTree = "<group>"; };
+		6B1B72DA1C95E0C000564012 /* SuggestibleTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestibleTextFieldCell.swift; sourceTree = "<group>"; };
+		6B1B72DB1C95E0C000564012 /* suggestionprototype.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = suggestionprototype.xib; sourceTree = "<group>"; };
+		6B1B72DC1C95E0C000564012 /* SuggestionsWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionsWindow.swift; sourceTree = "<group>"; };
+		6B1B72DD1C95E0C000564012 /* SuggestionsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionsWindowController.swift; sourceTree = "<group>"; };
+		6B1B72DE1C95E0C000564012 /* suggestiontitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = suggestiontitle.xib; sourceTree = "<group>"; };
+		6B1B72DF1C95E0C000564012 /* SuggestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6B1B72B71C95DFE900564012 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6B1B72C21C95DFEA00564012 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B1B72C61C95DFEA00564012 /* NSSuggestibleTextField.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6B1B72B11C95DFE900564012 = {
+			isa = PBXGroup;
+			children = (
+				6B1B72BD1C95DFE900564012 /* NSSuggestibleTextField */,
+				6B1B72C91C95DFEA00564012 /* NSSuggestibleTextFieldTests */,
+				6B1B72BC1C95DFE900564012 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6B1B72BC1C95DFE900564012 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6B1B72BB1C95DFE900564012 /* NSSuggestibleTextField.framework */,
+				6B1B72C51C95DFEA00564012 /* NSSuggestibleTextFieldTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6B1B72BD1C95DFE900564012 /* NSSuggestibleTextField */ = {
+			isa = PBXGroup;
+			children = (
+				6B1B72EB1C95E0DF00564012 /* config */,
+				6B1B72D51C95E0C000564012 /* CleverTextField.swift */,
+				6B1B72D61C95E0C000564012 /* CocoaCleverControls.h */,
+				6B1B72D71C95E0C000564012 /* HighlightingView.swift */,
+				6B1B72D81C95E0C000564012 /* RoundedCornersView.swift */,
+				6B1B72D91C95E0C000564012 /* SuggestibleTextField.swift */,
+				6B1B72DA1C95E0C000564012 /* SuggestibleTextFieldCell.swift */,
+				6B1B72DB1C95E0C000564012 /* suggestionprototype.xib */,
+				6B1B72DC1C95E0C000564012 /* SuggestionsWindow.swift */,
+				6B1B72DD1C95E0C000564012 /* SuggestionsWindowController.swift */,
+				6B1B72DE1C95E0C000564012 /* suggestiontitle.xib */,
+				6B1B72DF1C95E0C000564012 /* SuggestionViewController.swift */,
+			);
+			path = NSSuggestibleTextField;
+			sourceTree = "<group>";
+		};
+		6B1B72C91C95DFEA00564012 /* NSSuggestibleTextFieldTests */ = {
+			isa = PBXGroup;
+			children = (
+				6B1B72CA1C95DFEA00564012 /* NSSuggestibleTextFieldTests.swift */,
+				6B1B72CC1C95DFEA00564012 /* Info.plist */,
+			);
+			path = NSSuggestibleTextFieldTests;
+			sourceTree = "<group>";
+		};
+		6B1B72EB1C95E0DF00564012 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				6B1B72BE1C95DFE900564012 /* NSSuggestibleTextField.h */,
+				6B1B72C01C95DFE900564012 /* Info.plist */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6B1B72B81C95DFE900564012 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B1B72BF1C95DFE900564012 /* NSSuggestibleTextField.h in Headers */,
+				6B1B72E11C95E0C000564012 /* CocoaCleverControls.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6B1B72BA1C95DFE900564012 /* NSSuggestibleTextField */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6B1B72CF1C95DFEA00564012 /* Build configuration list for PBXNativeTarget "NSSuggestibleTextField" */;
+			buildPhases = (
+				6B1B72B61C95DFE900564012 /* Sources */,
+				6B1B72B71C95DFE900564012 /* Frameworks */,
+				6B1B72B81C95DFE900564012 /* Headers */,
+				6B1B72B91C95DFE900564012 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NSSuggestibleTextField;
+			productName = NSSuggestibleTextField;
+			productReference = 6B1B72BB1C95DFE900564012 /* NSSuggestibleTextField.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6B1B72C41C95DFEA00564012 /* NSSuggestibleTextFieldTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6B1B72D21C95DFEA00564012 /* Build configuration list for PBXNativeTarget "NSSuggestibleTextFieldTests" */;
+			buildPhases = (
+				6B1B72C11C95DFEA00564012 /* Sources */,
+				6B1B72C21C95DFEA00564012 /* Frameworks */,
+				6B1B72C31C95DFEA00564012 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6B1B72C81C95DFEA00564012 /* PBXTargetDependency */,
+			);
+			name = NSSuggestibleTextFieldTests;
+			productName = NSSuggestibleTextFieldTests;
+			productReference = 6B1B72C51C95DFEA00564012 /* NSSuggestibleTextFieldTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6B1B72B21C95DFE900564012 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "lubos plavucha";
+				TargetAttributes = {
+					6B1B72BA1C95DFE900564012 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					6B1B72C41C95DFEA00564012 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 6B1B72B51C95DFE900564012 /* Build configuration list for PBXProject "NSSuggestibleTextField" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6B1B72B11C95DFE900564012;
+			productRefGroup = 6B1B72BC1C95DFE900564012 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6B1B72BA1C95DFE900564012 /* NSSuggestibleTextField */,
+				6B1B72C41C95DFEA00564012 /* NSSuggestibleTextFieldTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6B1B72B91C95DFE900564012 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B1B72E91C95E0C000564012 /* suggestiontitle.xib in Resources */,
+				6B1B72E61C95E0C000564012 /* suggestionprototype.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6B1B72C31C95DFEA00564012 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6B1B72B61C95DFE900564012 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B1B72EA1C95E0C000564012 /* SuggestionViewController.swift in Sources */,
+				6B1B72E41C95E0C000564012 /* SuggestibleTextField.swift in Sources */,
+				6B1B72E21C95E0C000564012 /* HighlightingView.swift in Sources */,
+				6B1B72E01C95E0C000564012 /* CleverTextField.swift in Sources */,
+				6B1B72E71C95E0C000564012 /* SuggestionsWindow.swift in Sources */,
+				6B1B72E31C95E0C000564012 /* RoundedCornersView.swift in Sources */,
+				6B1B72E81C95E0C000564012 /* SuggestionsWindowController.swift in Sources */,
+				6B1B72E51C95E0C000564012 /* SuggestibleTextFieldCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6B1B72C11C95DFEA00564012 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B1B72CB1C95DFEA00564012 /* NSSuggestibleTextFieldTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6B1B72C81C95DFEA00564012 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6B1B72BA1C95DFE900564012 /* NSSuggestibleTextField */;
+			targetProxy = 6B1B72C71C95DFEA00564012 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6B1B72CD1C95DFEA00564012 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6B1B72CE1C95DFEA00564012 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6B1B72D01C95DFEA00564012 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = NSSuggestibleTextField/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lubosplavucha.NSSuggestibleTextField;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6B1B72D11C95DFEA00564012 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = NSSuggestibleTextField/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lubosplavucha.NSSuggestibleTextField;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		6B1B72D31C95DFEA00564012 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = NSSuggestibleTextFieldTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lubosplavucha.NSSuggestibleTextFieldTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6B1B72D41C95DFEA00564012 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = NSSuggestibleTextFieldTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lubosplavucha.NSSuggestibleTextFieldTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6B1B72B51C95DFE900564012 /* Build configuration list for PBXProject "NSSuggestibleTextField" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B1B72CD1C95DFEA00564012 /* Debug */,
+				6B1B72CE1C95DFEA00564012 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6B1B72CF1C95DFEA00564012 /* Build configuration list for PBXNativeTarget "NSSuggestibleTextField" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B1B72D01C95DFEA00564012 /* Debug */,
+				6B1B72D11C95DFEA00564012 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6B1B72D21C95DFEA00564012 /* Build configuration list for PBXNativeTarget "NSSuggestibleTextFieldTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B1B72D31C95DFEA00564012 /* Debug */,
+				6B1B72D41C95DFEA00564012 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6B1B72B21C95DFE900564012 /* Project object */;
+}
