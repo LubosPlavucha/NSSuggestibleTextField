@@ -16,6 +16,8 @@ TODO image
 #### Non-core data entity list
 If you need to have custom suggestions list, which doesn't map one to one to the core data entities, you can do this very easily. You just need to override the following method, which populates the list, and return any objects to be displayed (note: 'filterProperty' for the object still needs to be defined to be able to determine, which attribute of the object to be displayed):
 
+```swift
 public func getSuggestionsForText(text: String) -> [AnyObject] {
 
 }
+```
