@@ -191,7 +191,7 @@ public class SuggestionsWindowController: NSWindowController {
             frame.size.width = NSWidth(contentFrame)
             frame.origin = NSMakePoint(0, contentView.rcvCornerRadius) // offset the Y position so that the suggetion view does not try to draw past the rounded corners.
             
-            let bundle = NSBundle(identifier: "com.lubosplavucha.CocoaCleverControls")
+            let bundle = NSBundle(identifier: "com.lubosplavucha.NSSuggestibleTextField")
             let titleViewController = NSViewController(nibName: "suggestiontitle", bundle: bundle)
             let titleView = titleViewController!.view
             frame.size.height = titleView.frame.size.height

@@ -20,6 +20,13 @@ public class SuggestibleTextField: NSTextField, NSTextFieldDelegate {
     }
     
     
+    override public init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        self.editable = true
+        self.delegate = self
+    }
+    
+    
     override public func controlTextDidBeginEditing(notification: NSNotification) {
         
         if suggestionsController == nil {
