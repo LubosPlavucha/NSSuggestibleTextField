@@ -19,7 +19,7 @@ public class SuggestionsWindowController: NSWindowController {
     public init() {
         
         let contentRect = NSRect(x: 0, y: 0, width: 200, height: 200)
-        let window = SuggestionsWindow(contentRect: contentRect, styleMask: NSBorderlessWindowMask, backing: .Buffered, `defer`: true)
+        let window = SuggestionsWindow(contentRect: contentRect, styleMask: NSBorderlessWindowMask, backing: .Buffered, defer: true)
         super.init(window: window)
         
         let contentView = RoundedCornersView(frame: contentRect)
@@ -63,9 +63,9 @@ public class SuggestionsWindowController: NSWindowController {
         frame.size.width = 250  // TODO configurable
         
         // place the suggestion window just underneath the text field
-        let textFieldInWindowCoords = textField.convertRect(textField.frame, toView: nil)
+        let textFieldInWindowCoords = textField.convertRect(textField.bounds, toView: nil)
         var textFieldInScreen = parentWindow!.convertRectToScreen(textFieldInWindowCoords)
-        textFieldInScreen.origin.y -= 2.0
+        textFieldInScreen.origin.y -= 3.0
         suggestionWindow!.setFrame(frame, display: false)
         suggestionWindow!.setFrameTopLeftPoint(textFieldInScreen.origin)
         self.layoutSuggestions() // The height of the window will be adjusted in  layoutSuggestions

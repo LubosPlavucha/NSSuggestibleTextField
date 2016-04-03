@@ -14,7 +14,7 @@ public class SuggestionsWindow: NSWindow {
     
     override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool) {
         
-        super.init(contentRect: contentRect, styleMask: aStyle, backing: bufferingType, `defer`: flag)
+        super.init(contentRect: contentRect, styleMask: aStyle, backing: bufferingType, defer: flag)
         
         // This window always has a shadow and is transparent. Force those setting here.
         self.hasShadow = true
