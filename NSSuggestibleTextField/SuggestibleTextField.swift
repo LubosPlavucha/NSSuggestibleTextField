@@ -8,6 +8,7 @@ public class SuggestibleTextField: NSTextField, NSTextFieldDelegate {
     public var entityName: String!     // set from outside (e.g. in Runtime attributes)
     public var filterProperty: String!     // set from outside (e.g. in Runtime attributes)
     public var managedObjectContext: NSManagedObjectContext!   // set from outside
+    public var suggestibleTextFieldDelegate: SuggestibleTextFieldDelegate?
     var selectedEntity: AnyObject?  // entity selected in the suggestions list
     var suggestionsController: SuggestionsWindowController?
     var skipNextSuggestion = false
@@ -28,6 +29,8 @@ public class SuggestibleTextField: NSTextField, NSTextFieldDelegate {
     
     
     override public func controlTextDidBeginEditing(notification: NSNotification) {
+        
+        suggestibleTextFieldDelegate?.beginEditing(self)
         
         if suggestionsController == nil {
             suggestionsController = SuggestionsWindowController()
@@ -56,6 +59,7 @@ public class SuggestibleTextField: NSTextField, NSTextFieldDelegate {
     
     override public func controlTextDidEndEditing(notification: NSNotification) {
         suggestionsController?.cancelSuggestions()
+        suggestibleTextFieldDelegate?.endEditing(self)
     }
 
     

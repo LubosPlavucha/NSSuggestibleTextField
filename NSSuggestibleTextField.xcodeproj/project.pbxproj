@@ -21,6 +21,7 @@
 		6B1B72E81C95E0C000564012 /* SuggestionsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B72DD1C95E0C000564012 /* SuggestionsWindowController.swift */; };
 		6B1B72E91C95E0C000564012 /* suggestiontitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B72DE1C95E0C000564012 /* suggestiontitle.xib */; };
 		6B1B72EA1C95E0C000564012 /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B72DF1C95E0C000564012 /* SuggestionViewController.swift */; };
+		6B6889611CB19B0E00E36ED6 /* SuggestibleTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6889601CB19B0E00E36ED6 /* SuggestibleTextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		6B1B72DD1C95E0C000564012 /* SuggestionsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionsWindowController.swift; sourceTree = "<group>"; };
 		6B1B72DE1C95E0C000564012 /* suggestiontitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = suggestiontitle.xib; sourceTree = "<group>"; };
 		6B1B72DF1C95E0C000564012 /* SuggestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
+		6B6889601CB19B0E00E36ED6 /* SuggestibleTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestibleTextFieldDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				6B1B72DD1C95E0C000564012 /* SuggestionsWindowController.swift */,
 				6B1B72DE1C95E0C000564012 /* suggestiontitle.xib */,
 				6B1B72DF1C95E0C000564012 /* SuggestionViewController.swift */,
+				6B6889601CB19B0E00E36ED6 /* SuggestibleTextFieldDelegate.swift */,
 			);
 			path = NSSuggestibleTextField;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				6B1B72E01C95E0C000564012 /* CleverTextField.swift in Sources */,
 				6B1B72E71C95E0C000564012 /* SuggestionsWindow.swift in Sources */,
 				6B1B72E31C95E0C000564012 /* RoundedCornersView.swift in Sources */,
+				6B6889611CB19B0E00E36ED6 /* SuggestibleTextFieldDelegate.swift in Sources */,
 				6B1B72E81C95E0C000564012 /* SuggestionsWindowController.swift in Sources */,
 				6B1B72E51C95E0C000564012 /* SuggestibleTextFieldCell.swift in Sources */,
 			);
