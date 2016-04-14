@@ -35,7 +35,7 @@ public class SuggestibleTextField: NSTextField, NSTextFieldDelegate {
         if suggestionsController == nil {
             suggestionsController = SuggestionsWindowController()
             suggestionsController!.target = self
-            suggestionsController!.action = Selector("updateWithSelectedSuggestion:")
+            suggestionsController!.action = #selector(SuggestibleTextField.updateWithSelectedSuggestion(_:))
             suggestionsController!.filterProperty = filterProperty
         }
         self.updateSuggestionsFromControl(notification.object)
@@ -152,24 +152,24 @@ public class SuggestibleTextField: NSTextField, NSTextFieldDelegate {
     
     public func control(control: NSControl, textView: NSTextView, doCommandBySelector commandSelector: Selector) -> Bool {
         
-        if commandSelector == Selector("moveUp:") {
+        if commandSelector == #selector(NSResponder.moveUp(_:)) {
             // Move up in the suggested selections list
             suggestionsController?.moveUp(textView)
             return true
         }
-        if commandSelector == Selector("moveDown:") {
+        if commandSelector == #selector(NSResponder.moveDown(_:)) {
             // Move up in the suggested selections list
             suggestionsController?.moveDown(textView)
             return true
         }
-        if commandSelector == Selector("deleteForward:") || commandSelector == Selector("deleteBackward:") {
+        if commandSelector == #selector(NSResponder.deleteForward(_:)) || commandSelector == #selector(NSResponder.deleteBackward(_:)) {
             /* The user is deleting the highlighted portion of the suggestion or more. Return NO so that the field editor performs the deletion. The field editor will then call -controlTextDidChange:. We don't want to provide a new set of suggestions as that will put back the characters the user just deleted. Instead, set skipNextSuggestion to YES which will cause -controlTextDidChange: to cancel the suggestions window. (see -controlTextDidChange: above)
             
             */
             self.skipNextSuggestion = true
             return false
         }
-        if commandSelector == Selector("complete:") {
+        if commandSelector == #selector(NSResponder.complete(_:)) {
             // The user has pressed the key combination for auto completion. AppKit has a built in auto completion. By overriding this command we prevent AppKit's auto completion and can respond to the user's intention by showing or cancelling our custom suggestions window.
             
             if suggestionsController?.window?.visible == true {
