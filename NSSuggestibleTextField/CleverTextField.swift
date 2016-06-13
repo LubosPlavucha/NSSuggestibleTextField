@@ -16,8 +16,9 @@ class CleverTextField: NSTextField, NSTextFieldDelegate {
     }
     
     
-    override func bind(binding: String, toObject observable: AnyObject, withKeyPath keyPath: String, var options: [String : AnyObject]?) {
+    override func bind(binding: String, toObject observable: AnyObject, withKeyPath keyPath: String, options: [String : AnyObject]?) {
         
+        var options = options
         boundObject = observable
         boundKeyPath = keyPath
         
