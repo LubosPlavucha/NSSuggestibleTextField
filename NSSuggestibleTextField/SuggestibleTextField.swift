@@ -12,6 +12,7 @@ public class SuggestibleTextField: NSTextField, NSTextFieldDelegate {
     var selectedEntity: AnyObject?  // entity selected in the suggestions list
     var suggestionsController: SuggestionsWindowController?
     var skipNextSuggestion = false
+    public var updateFieldEditor = true
 
     
     required public init?(coder: NSCoder) {
@@ -94,7 +95,10 @@ public class SuggestibleTextField: NSTextField, NSTextFieldDelegate {
                     let suggestion = suggestions[0]
                     self.selectedEntity = suggestion
                     
-                    self.updateFieldEditor(fieldEditor, suggestion: suggestion)
+                    // update the field editor - normally this should be the case
+                    if updateFieldEditor {
+                        self.updateFieldEditor(fieldEditor, suggestion: suggestion)
+                    }
                     suggestionsController?.suggestions = suggestions
                         
                     if let window = suggestionsController?.window where !window.visible {
@@ -152,6 +156,15 @@ public class SuggestibleTextField: NSTextField, NSTextFieldDelegate {
     
     public func control(control: NSControl, textView: NSTextView, doCommandBySelector commandSelector: Selector) -> Bool {
         
+        // if the field editor is not updated automatically, do it after the Enter is pressed
+        if !updateFieldEditor && commandSelector == #selector(NSResponder.insertNewline(_:)) {
+            // Enter pressed - update text field with the selected value in the suggestion list
+            if let fieldEditor = self.window?.fieldEditor(false, forObject: self) where self.selectedEntity != nil {
+                self.updateFieldEditor(fieldEditor, suggestion: self.selectedEntity!)
+                suggestionsController?.cancelSuggestions()
+            }
+            return false
+        }
         if commandSelector == #selector(NSResponder.moveUp(_:)) {
             // Move up in the suggested selections list
             suggestionsController?.moveUp(textView)
