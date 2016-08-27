@@ -30,9 +30,7 @@ public class SuggestibleTextField: NSTextField, NSTextFieldDelegate {
     
     
     override public func controlTextDidBeginEditing(notification: NSNotification) {
-        
-        suggestibleTextFieldDelegate?.beginEditing(self)
-        
+                
         if suggestionsController == nil {
             suggestionsController = SuggestionsWindowController()
             suggestionsController!.target = self
@@ -60,7 +58,6 @@ public class SuggestibleTextField: NSTextField, NSTextFieldDelegate {
     
     override public func controlTextDidEndEditing(notification: NSNotification) {
         suggestionsController?.cancelSuggestions()
-        suggestibleTextFieldDelegate?.endEditing(self)
     }
 
     
@@ -103,12 +100,14 @@ public class SuggestibleTextField: NSTextField, NSTextFieldDelegate {
                         
                     if let window = suggestionsController?.window where !window.visible {
                         suggestionsController!.beginForTextField(control as! NSTextField)
+                        suggestibleTextFieldDelegate?.suggestionWindowOpened(self)
                     }
                     
                 } else {
                     // No suggestions. Cancel the suggestion window.
                     self.selectedEntity = nil
                     suggestionsController?.cancelSuggestions()
+                    suggestibleTextFieldDelegate?.suggestionWindowClosed(self)
                 }
             } else {
                 suggestionsController?.cancelSuggestions()
