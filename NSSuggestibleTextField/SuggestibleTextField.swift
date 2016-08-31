@@ -12,7 +12,7 @@ public class SuggestibleTextField: NSTextField, NSTextFieldDelegate {
     var selectedEntity: AnyObject?  // entity selected in the suggestions list
     var suggestionsController: SuggestionsWindowController?
     var skipNextSuggestion = false
-    public var updateFieldEditor = true
+    public var updateFieldEditorAutomatically = true    // if set to false, the text field will be not updated by the selected suggestion on each text change, but only if the user selects an entry from the suggestion window
 
     
     required public init?(coder: NSCoder) {
@@ -36,6 +36,7 @@ public class SuggestibleTextField: NSTextField, NSTextFieldDelegate {
             suggestionsController!.target = self
             suggestionsController!.action = #selector(SuggestibleTextField.updateWithSelectedSuggestion(_:))
             suggestionsController!.filterProperty = filterProperty
+            suggestionsController?.suggestibleTextFieldDelegate = self.suggestibleTextFieldDelegate
         }
         self.updateSuggestionsFromControl(notification.object)
     }
@@ -93,7 +94,7 @@ public class SuggestibleTextField: NSTextField, NSTextFieldDelegate {
                     self.selectedEntity = suggestion
                     
                     // update the field editor - normally this should be the case
-                    if updateFieldEditor {
+                    if updateFieldEditorAutomatically {
                         self.updateFieldEditor(fieldEditor, suggestion: suggestion)
                     }
                     suggestionsController?.suggestions = suggestions
@@ -107,7 +108,6 @@ public class SuggestibleTextField: NSTextField, NSTextFieldDelegate {
                     // No suggestions. Cancel the suggestion window.
                     self.selectedEntity = nil
                     suggestionsController?.cancelSuggestions()
-                    suggestibleTextFieldDelegate?.suggestionWindowClosed(self)
                 }
             } else {
                 suggestionsController?.cancelSuggestions()
@@ -156,7 +156,7 @@ public class SuggestibleTextField: NSTextField, NSTextFieldDelegate {
     public func control(control: NSControl, textView: NSTextView, doCommandBySelector commandSelector: Selector) -> Bool {
         
         // if the field editor is not updated automatically, do it after the Enter is pressed
-        if !updateFieldEditor && commandSelector == #selector(NSResponder.insertNewline(_:)) {
+        if !updateFieldEditorAutomatically && commandSelector == #selector(NSResponder.insertNewline(_:)) {
             // Enter pressed - update text field with the selected value in the suggestion list
             if let fieldEditor = self.window?.fieldEditor(false, forObject: self) where self.selectedEntity != nil {
                 self.updateFieldEditor(fieldEditor, suggestion: self.selectedEntity!)

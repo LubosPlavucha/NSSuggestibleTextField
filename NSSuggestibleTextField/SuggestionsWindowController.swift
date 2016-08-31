@@ -7,7 +7,8 @@ public class SuggestionsWindowController: NSWindowController {
     var viewControllers: [NSViewController] = []
     var trackingAreas: [NSTrackingArea] = []
     var parentTextField: NSTextField?
-    var localMouseDownEventMonitor: AnyObject?        
+    var localMouseDownEventMonitor: AnyObject?   
+    var suggestibleTextFieldDelegate: SuggestibleTextFieldDelegate?
     var lostFocusObserver: AnyObject? 
     var action: Selector!
     var target: AnyObject!
@@ -129,7 +130,8 @@ public class SuggestionsWindowController: NSWindowController {
             
             // Remove the suggestion window from parent window's child window collection before ordering out or the parent window will get ordered out with the suggestion window.
             suggestionWindow!.parentWindow!.removeChildWindow(suggestionWindow!)
-            suggestionWindow?.orderOut(nil)            
+            suggestionWindow?.orderOut(nil)
+            suggestibleTextFieldDelegate?.suggestionWindowClosed(parentTextField!)
         }
         
         // dismantle any observers for auto cancel
