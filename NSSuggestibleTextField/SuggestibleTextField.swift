@@ -155,33 +155,37 @@ public class SuggestibleTextField: NSTextField, NSTextFieldDelegate {
     
     public func control(control: NSControl, textView: NSTextView, doCommandBySelector commandSelector: Selector) -> Bool {
         
-        // if the field editor is not updated automatically, do it after the Enter is pressed
-        if !updateFieldEditorAutomatically && commandSelector == #selector(NSResponder.insertNewline(_:)) {
-            // Enter pressed - update text field with the selected value in the suggestion list
-            if let fieldEditor = self.window?.fieldEditor(false, forObject: self) where self.selectedEntity != nil {
-                self.updateFieldEditor(fieldEditor, suggestion: self.selectedEntity!)
+        // Enter key pressed
+        if commandSelector == #selector(NSResponder.insertNewline(_:)) {
+            
+            if let fieldEditor = self.window?.fieldEditor(false, forObject: self) where suggestionsController?.window?.visible == true {
+                    
+                // the suggestion window is displayed
+                
+                if self.selectedEntity != nil && !updateFieldEditorAutomatically {
+                    // if the text field is not to be updated automatically as the user types the text -> set the text value from the suggestions list if selected
+                    self.updateFieldEditor(fieldEditor, suggestion: self.selectedEntity!)
+                }
                 suggestionsController?.cancelSuggestions()
+                return true // return true because we want to handle the Enter key event completely here; it should not be handled by the system somewhere else in the case the suggestions window is opened
             }
-            return false
-        }
-        if commandSelector == #selector(NSResponder.moveUp(_:)) {
+            return false    // must return false not to block the Enter key event handling if the suggestible text field hasn't opened the suggestions window
+        
+        } else if commandSelector == #selector(NSResponder.moveUp(_:)) {
             // Move up in the suggested selections list
             suggestionsController?.moveUp(textView)
             return true
-        }
-        if commandSelector == #selector(NSResponder.moveDown(_:)) {
+        } else if commandSelector == #selector(NSResponder.moveDown(_:)) {
             // Move up in the suggested selections list
             suggestionsController?.moveDown(textView)
             return true
-        }
-        if commandSelector == #selector(NSResponder.deleteForward(_:)) || commandSelector == #selector(NSResponder.deleteBackward(_:)) {
+        } else if commandSelector == #selector(NSResponder.deleteForward(_:)) || commandSelector == #selector(NSResponder.deleteBackward(_:)) {
             /* The user is deleting the highlighted portion of the suggestion or more. Return NO so that the field editor performs the deletion. The field editor will then call -controlTextDidChange:. We don't want to provide a new set of suggestions as that will put back the characters the user just deleted. Instead, set skipNextSuggestion to YES which will cause -controlTextDidChange: to cancel the suggestions window. (see -controlTextDidChange: above)
             
             */
             self.skipNextSuggestion = true
             return false
-        }
-        if commandSelector == #selector(NSResponder.complete(_:)) {
+        } else if commandSelector == #selector(NSResponder.complete(_:)) {
             // The user has pressed the key combination for auto completion. AppKit has a built in auto completion. By overriding this command we prevent AppKit's auto completion and can respond to the user's intention by showing or cancelling our custom suggestions window.
             
             if suggestionsController?.window?.visible == true {
