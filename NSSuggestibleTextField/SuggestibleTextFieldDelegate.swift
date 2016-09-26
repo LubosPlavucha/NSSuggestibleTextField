@@ -11,8 +11,8 @@ import Foundation
 public protocol SuggestibleTextFieldDelegate {
     
     
-    func suggestionWindowOpened(sender: NSTextField)
+    func suggestionWindowOpened(_ sender: NSTextField)
     
     
-    func suggestionWindowClosed(sender: NSTextField)
+    func suggestionWindowClosed(_ sender: NSTextField)
 }

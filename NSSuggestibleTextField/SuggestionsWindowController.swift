@@ -1,7 +1,7 @@
 
 import Foundation
 
-public class SuggestionsWindowController: NSWindowController {
+open class SuggestionsWindowController: NSWindowController {
     
     
     var viewControllers: [NSViewController] = []
@@ -20,7 +20,7 @@ public class SuggestionsWindowController: NSWindowController {
     public init() {
         
         let contentRect = NSRect(x: 0, y: 0, width: 200, height: 200)
-        let window = SuggestionsWindow(contentRect: contentRect, styleMask: NSBorderlessWindowMask, backing: .Buffered, defer: true)
+        let window = SuggestionsWindow(contentRect: contentRect, styleMask: NSBorderlessWindowMask, backing: .buffered, defer: true)
         super.init(window: window)
         
         let contentView = RoundedCornersView(frame: contentRect)
@@ -38,7 +38,7 @@ public class SuggestionsWindowController: NSWindowController {
     
     var selectedView: NSView? {
         willSet {
-            if let selectedView = self.selectedView as? HighlightingView where selectedView !== newValue {
+            if let selectedView = self.selectedView as? HighlightingView , selectedView !== newValue {
                 selectedView.highlighted = false
             }
         }
@@ -50,13 +50,13 @@ public class SuggestionsWindowController: NSWindowController {
     }
     
     
-    func userSetSelectedView(view: NSView?) {
+    func userSetSelectedView(_ view: NSView?) {
         self.selectedView = view
         NSApp.sendAction(self.action, to: self.target, from: self)
     }
     
     
-    func beginForTextField(textField: NSTextField) {
+    func beginForTextField(_ textField: NSTextField) {
         
         let suggestionWindow = self.window
         let parentWindow = textField.window
@@ -64,25 +64,25 @@ public class SuggestionsWindowController: NSWindowController {
         frame.size.width = 250  // TODO configurable
         
         // place the suggestion window just underneath the text field
-        let textFieldInWindowCoords = textField.convertRect(textField.bounds, toView: nil)
-        var textFieldInScreen = parentWindow!.convertRectToScreen(textFieldInWindowCoords)
+        let textFieldInWindowCoords = textField.convert(textField.bounds, to: nil)
+        var textFieldInScreen = parentWindow!.convertToScreen(textFieldInWindowCoords)
         textFieldInScreen.origin.y -= 3.0
         suggestionWindow!.setFrame(frame, display: false)
         suggestionWindow!.setFrameTopLeftPoint(textFieldInScreen.origin)
         self.layoutSuggestions() // The height of the window will be adjusted in  layoutSuggestions
         
         // add the suggestion window as a child window so that it plays nice with Expose
-        parentWindow!.addChildWindow(suggestionWindow!, ordered: .Above)
+        parentWindow!.addChildWindow(suggestionWindow!, ordered: .above)
         
         self.parentTextField = textField
         
         // setup auto cancellation if the user clicks outside the suggestion window and parent text field. Note: this is a local event monitor and will only catch clicks in windows that belong to this application. We use another technique below to catch clicks in other application windows.
         
-        localMouseDownEventMonitor = NSEvent.addLocalMonitorForEventsMatchingMask([NSEventMask.LeftMouseDownMask, NSEventMask.RightMouseDownMask, NSEventMask.OtherMouseDownMask]) { (event: NSEvent?) -> NSEvent? in
+        localMouseDownEventMonitor = NSEvent.addLocalMonitorForEvents(matching: [NSEventMask.leftMouseDown, NSEventMask.rightMouseDown, NSEventMask.otherMouseDown]) { (event: NSEvent?) -> NSEvent? in
             
             // If the mouse event is in the suggestion window, then there is nothing to do.
             
-            if let window = event?.window where !window.isEqual(suggestionWindow) {
+            if let window = event?.window , !window.isEqual(suggestionWindow) {
                 
                 if window.isEqual(parentWindow) {
                     
@@ -93,7 +93,7 @@ public class SuggestionsWindowController: NSWindowController {
                     */
                     if let contentView = parentWindow!.contentView {
                         
-                        let locationTest = contentView.convertPoint(event!.locationInWindow, fromView:nil)
+                        let locationTest = contentView.convert(event!.locationInWindow, from:nil)
                         
                         if let hitView = contentView.hitTest(locationTest) {
                             let fieldEditor = self.parentTextField!.currentEditor
@@ -112,10 +112,10 @@ public class SuggestionsWindowController: NSWindowController {
                 }
             }
             return event
-        }
+        } as AnyObject?
         
         // We also need to auto cancel when the window loses key status. This may be done via a mouse click in another window, or via the keyboard (cmd-~ or cmd-tab), or a notificaiton. Observing NSWindowDidResignKeyNotification catches all of these cases and the mouse down event monitor catches the other cases.
-        lostFocusObserver = NSNotificationCenter.defaultCenter().addObserverForName(NSWindowDidResignKeyNotification, object:parentWindow, queue:nil) { note in
+        lostFocusObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.NSWindowDidResignKey, object:parentWindow, queue:nil) { note in
             // lost key status, cancel the suggestion window
             self.cancelSuggestions()
         }
@@ -126,17 +126,17 @@ public class SuggestionsWindowController: NSWindowController {
         
         let suggestionWindow = self.window
         
-        if suggestionWindow!.visible {
+        if suggestionWindow!.isVisible {
             
             // Remove the suggestion window from parent window's child window collection before ordering out or the parent window will get ordered out with the suggestion window.
-            suggestionWindow!.parentWindow!.removeChildWindow(suggestionWindow!)
+            suggestionWindow!.parent!.removeChildWindow(suggestionWindow!)
             suggestionWindow?.orderOut(nil)
             suggestibleTextFieldDelegate?.suggestionWindowClosed(parentTextField!)
         }
         
         // dismantle any observers for auto cancel
         if (lostFocusObserver != nil) {
-            NSNotificationCenter.defaultCenter().removeObserver(lostFocusObserver!)
+            NotificationCenter.default.removeObserver(lostFocusObserver!)
             lostFocusObserver = nil
         }
         if (localMouseDownEventMonitor != nil) {
@@ -148,7 +148,7 @@ public class SuggestionsWindowController: NSWindowController {
     
     var suggestions: [AnyObject] = [] {
         didSet {
-            if let window = self.window where window.visible {
+            if let window = self.window , window.isVisible {
                 self.layoutSuggestions()    // update suggestions (if the window is visible)
             }
         }
@@ -159,7 +159,7 @@ public class SuggestionsWindowController: NSWindowController {
         get {
             // Find the currently selected view's controller (if there is one) and return the representedObject
             if let selectedViewController = viewControllers.filter({$0.view.isEqual(self.selectedView)}).first as? SuggestionViewController {
-                return selectedViewController.representedObject
+                return selectedViewController.representedObject as AnyObject?
             }
             return nil
         }
@@ -168,7 +168,7 @@ public class SuggestionsWindowController: NSWindowController {
     
     func layoutSuggestions() {
         
-        if let window = self.window, contentView = window.contentView as? RoundedCornersView {
+        if let window = self.window, let contentView = window.contentView as? RoundedCornersView {
             
             // Remove any existing suggestion view and associated tracking area and set the selection to nil
             self.selectedView = nil
@@ -192,7 +192,7 @@ public class SuggestionsWindowController: NSWindowController {
             frame.size.width = NSWidth(contentFrame)
             frame.origin = NSMakePoint(0, contentView.rcvCornerRadius) // offset the Y position so that the suggetion view does not try to draw past the rounded corners.
             
-            let bundle = NSBundle(identifier: "com.lubosplavucha.NSSuggestibleTextField")
+            let bundle = Bundle(identifier: "com.lubosplavucha.NSSuggestibleTextField")
             let titleViewController = NSViewController(nibName: "suggestiontitle", bundle: bundle)
             let titleView = titleViewController!.view
             frame.size.height = titleView.frame.size.height
@@ -239,12 +239,12 @@ public class SuggestionsWindowController: NSWindowController {
     }
     
     
-    func getTrackingAreaForView(view: NSView) -> NSTrackingArea? {
+    func getTrackingAreaForView(_ view: NSView) -> NSTrackingArea? {
         
-        if let trackingRect = self.window?.contentView?.convertRect(view.bounds, fromView: view) {
+        if let trackingRect = self.window?.contentView?.convert(view.bounds, from: view) {
             
             let trackerData = [trackerKey: view]
-            let trackingArea = NSTrackingArea(rect: trackingRect, options: [.MouseEnteredAndExited, .EnabledDuringMouseDrag, .ActiveInActiveApp], owner: self, userInfo: trackerData)
+            let trackingArea = NSTrackingArea(rect: trackingRect, options: [.mouseEnteredAndExited, .enabledDuringMouseDrag, .activeInActiveApp], owner: self, userInfo: trackerData)
             return trackingArea
         }
         return nil
@@ -254,21 +254,21 @@ public class SuggestionsWindowController: NSWindowController {
     /* The mouse is now over one of our child image views. Update selection and send action.
     
     */
-    override public func mouseEntered(event: NSEvent) {
+    override open func mouseEntered(with event: NSEvent) {
         if let view = event.trackingArea?.userInfo?[trackerKey] as? NSView {
             self.userSetSelectedView(view)
         }        
     }
     
     
-    override public func mouseExited(theEvent: NSEvent) {
+    override open func mouseExited(with theEvent: NSEvent) {
         self.userSetSelectedView(nil)
     }
     
     
     /* The user released the mouse button. Force the parent text field to send its return action. Notice that there is no mouseDown: implementation. That is because the user may hold the mouse down and drag into another view.
     */
-    public override func mouseUp(theEvent: NSEvent) {
+    open override func mouseUp(with theEvent: NSEvent) {
         
         if parentTextField != nil {
             parentTextField!.validateEditing()
@@ -278,7 +278,7 @@ public class SuggestionsWindowController: NSWindowController {
     }
     
     
-    override public func moveUp(sender: AnyObject?) {
+    override open func moveUp(_ sender: Any?) {
         
         let selectedView = self.selectedView
         var previousView: NSView? = nil
@@ -296,12 +296,12 @@ public class SuggestionsWindowController: NSWindowController {
     }
     
     
-    override public func moveDown(sender: AnyObject?) {
+    override open func moveDown(_ sender: Any?) {
         
         let selectedView = self.selectedView
         var previousView: NSView? = nil
         
-        for viewController in viewControllers.reverse() {
+        for viewController in viewControllers.reversed() {
             let view = viewController.view
             if view.isEqual(selectedView) {
                 break

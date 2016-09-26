@@ -1,11 +1,11 @@
 
 import Foundation
 
-public class RoundedCornersView: NSView {
+open class RoundedCornersView: NSView {
     
     
     var rcvCornerRadius: CGFloat!
-    override public var flipped: Bool {
+    override open var isFlipped: Bool {
         get {
             return true
         }
@@ -22,11 +22,11 @@ public class RoundedCornersView: NSView {
     }
     
     
-    override public func drawRect(dirtyRect: NSRect) {
+    override open func draw(_ dirtyRect: NSRect) {
         let cornerRadius = self.rcvCornerRadius
         
-        let borderPath = NSBezierPath(roundedRect: self.bounds, xRadius:cornerRadius, yRadius: cornerRadius)
-        NSColor.windowBackgroundColor().setFill()
+        let borderPath = NSBezierPath(roundedRect: self.bounds, xRadius:cornerRadius!, yRadius: cornerRadius!)
+        NSColor.windowBackgroundColor.setFill()
         borderPath.fill()
     }
     

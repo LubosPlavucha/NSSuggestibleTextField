@@ -10,8 +10,6 @@
 		6B1B72BF1C95DFE900564012 /* NSSuggestibleTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B1B72BE1C95DFE900564012 /* NSSuggestibleTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6B1B72C61C95DFEA00564012 /* NSSuggestibleTextField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B1B72BB1C95DFE900564012 /* NSSuggestibleTextField.framework */; };
 		6B1B72CB1C95DFEA00564012 /* NSSuggestibleTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B72CA1C95DFEA00564012 /* NSSuggestibleTextFieldTests.swift */; };
-		6B1B72E01C95E0C000564012 /* CleverTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B72D51C95E0C000564012 /* CleverTextField.swift */; };
-		6B1B72E11C95E0C000564012 /* CocoaCleverControls.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B1B72D61C95E0C000564012 /* CocoaCleverControls.h */; };
 		6B1B72E21C95E0C000564012 /* HighlightingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B72D71C95E0C000564012 /* HighlightingView.swift */; };
 		6B1B72E31C95E0C000564012 /* RoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B72D81C95E0C000564012 /* RoundedCornersView.swift */; };
 		6B1B72E41C95E0C000564012 /* SuggestibleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B72D91C95E0C000564012 /* SuggestibleTextField.swift */; };
@@ -41,8 +39,6 @@
 		6B1B72C51C95DFEA00564012 /* NSSuggestibleTextFieldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSSuggestibleTextFieldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B1B72CA1C95DFEA00564012 /* NSSuggestibleTextFieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSuggestibleTextFieldTests.swift; sourceTree = "<group>"; };
 		6B1B72CC1C95DFEA00564012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6B1B72D51C95E0C000564012 /* CleverTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleverTextField.swift; sourceTree = "<group>"; };
-		6B1B72D61C95E0C000564012 /* CocoaCleverControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaCleverControls.h; sourceTree = "<group>"; };
 		6B1B72D71C95E0C000564012 /* HighlightingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightingView.swift; sourceTree = "<group>"; };
 		6B1B72D81C95E0C000564012 /* RoundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornersView.swift; sourceTree = "<group>"; };
 		6B1B72D91C95E0C000564012 /* SuggestibleTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestibleTextField.swift; sourceTree = "<group>"; };
@@ -96,8 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				6B1B72EB1C95E0DF00564012 /* config */,
-				6B1B72D51C95E0C000564012 /* CleverTextField.swift */,
-				6B1B72D61C95E0C000564012 /* CocoaCleverControls.h */,
 				6B1B72D71C95E0C000564012 /* HighlightingView.swift */,
 				6B1B72D81C95E0C000564012 /* RoundedCornersView.swift */,
 				6B1B72D91C95E0C000564012 /* SuggestibleTextField.swift */,
@@ -138,7 +132,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B1B72BF1C95DFE900564012 /* NSSuggestibleTextField.h in Headers */,
-				6B1B72E11C95E0C000564012 /* CocoaCleverControls.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,11 +181,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "lubos plavucha";
 				TargetAttributes = {
 					6B1B72BA1C95DFE900564012 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 					};
 					6B1B72C41C95DFEA00564012 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -244,7 +238,6 @@
 				6B1B72EA1C95E0C000564012 /* SuggestionViewController.swift in Sources */,
 				6B1B72E41C95E0C000564012 /* SuggestibleTextField.swift in Sources */,
 				6B1B72E21C95E0C000564012 /* HighlightingView.swift in Sources */,
-				6B1B72E01C95E0C000564012 /* CleverTextField.swift in Sources */,
 				6B1B72E71C95E0C000564012 /* SuggestionsWindow.swift in Sources */,
 				6B1B72E31C95E0C000564012 /* RoundedCornersView.swift in Sources */,
 				6B6889611CB19B0E00E36ED6 /* SuggestibleTextFieldDelegate.swift in Sources */,
@@ -285,8 +278,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -332,8 +327,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -353,6 +350,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -362,6 +360,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -376,6 +375,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -383,6 +383,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -396,6 +397,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.lubosplavucha.NSSuggestibleTextField;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

@@ -2,13 +2,13 @@
 import Foundation
 
 
-public class SuggestionViewController: NSViewController {
+open class SuggestionViewController: NSViewController {
     
     
     var suggestionKeyPath: String!
 
     
     func getSuggestionText() -> String? {
-        return self.representedObject?.valueForKeyPath(suggestionKeyPath) as? String
+        return (self.representedObject as AnyObject).value(forKeyPath: suggestionKeyPath) as? String
     }
 }
