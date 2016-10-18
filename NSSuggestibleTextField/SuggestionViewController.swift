@@ -9,6 +9,9 @@ open class SuggestionViewController: NSViewController {
 
     
     func getSuggestionText() -> String? {
-        return (self.representedObject as AnyObject).value(forKeyPath: suggestionKeyPath) as? String
+        if let object = self.representedObject as? NSObject, let value = object.value(forKeyPath: suggestionKeyPath) as? String {
+            return value
+        }
+        return nil
     }
 }
